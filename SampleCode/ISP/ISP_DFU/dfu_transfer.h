@@ -3,7 +3,8 @@
  * @brief    NUC230_240 series USB DFU transfer header file
  *
  * @note
- * Copyright (C) 2019 Nuvoton Technology Corp. All rights reserved.
+ * @copyright SPDX-License-Identifier: Apache-2.0
+ * @copyright Copyright (C) 2014 Nuvoton Technology Corp. All rights reserved.
  ******************************************************************************/
 #ifndef __USBD_DFU_H__
 #define __USBD_DFU_H__
@@ -126,7 +127,7 @@ typedef enum
     DFU_REQ_MAX
 } dfu_requests_enum;
 
-#pragma pack(1)
+//#pragma pack(1)
 
 #define DFU_DETACH                        0
 #define DFU_DNLOAD                        1

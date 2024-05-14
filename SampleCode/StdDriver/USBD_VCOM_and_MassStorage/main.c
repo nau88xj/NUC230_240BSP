@@ -5,7 +5,8 @@
  *           It supports one virtual COM port and one USB Mass-Storage device.
  * @note
  *
- * Copyright (C) 2013 Nuvoton Technology Corp. All rights reserved.
+ * @copyright SPDX-License-Identifier: Apache-2.0
+ * @copyright Copyright (C) 2014 Nuvoton Technology Corp. All rights reserved.
  ******************************************************************************/
 #include <stdio.h>
 #include "NUC230_240.h"
@@ -22,8 +23,6 @@ uint16_t gCtrlSignal = 0;     /* BIT0: DTR(Data Terminal Ready) , BIT1: RTS(Requ
 /*--------------------------------------------------------------------------*/
 #define RXBUFSIZE           512 /* RX buffer size */
 #define TXBUFSIZE           512 /* RX buffer size */
-
-#define TX_FIFO_SIZE        64  /* TX Hardware FIFO size */
 
 #define CONFIG_BASE      0x00300000
 #define DATA_FLASH_BASE  MASS_STORAGE_OFFSET
@@ -179,9 +178,9 @@ void UART02_IRQHandler(void)
         {
             /* Fill the Tx FIFO */
             size = comTbytes;
-            if(size >= TX_FIFO_SIZE)
+            if(size >= UART0_FIFO_SIZE)
             {
-                size = TX_FIFO_SIZE;
+                size = UART0_FIFO_SIZE;
             }
 
             while(size)

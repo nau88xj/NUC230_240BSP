@@ -6,8 +6,9 @@
  * @brief    NUC230_240 Series CAN Driver Sample Code
  *
  * @note
- * Copyright (C) 2014 Nuvoton Technology Corp. All rights reserved.
+ * @copyright SPDX-License-Identifier: Apache-2.0
  *
+ * @copyright Copyright (C) 2014 Nuvoton Technology Corp. All rights reserved.
  ******************************************************************************/
 #include <stdio.h>
 #include "NUC230_240.h"
@@ -414,10 +415,13 @@ int main(void)
     /* SAMPLE CODE                                                                                             */
     /*---------------------------------------------------------------------------------------------------------*/
 
-     /* Enable CAN transceiver for Nuvoton board */
-     PE->PMD = (GPIO_PMD_OUTPUT << 2*2) | (GPIO_PMD_OUTPUT << 3*2);
-     PE2 = 0;
-     PE3 = 0;
+    /* Enable CAN transceiver for Nuvoton board */
+    /* CAN0 */
+    PB->PMD = GPIO_PMD_OUTPUT << 3*2;
+    PB3 = 0;
+    /* CAN1 */
+    PC->PMD = GPIO_PMD_OUTPUT << 5*2;
+    PC5 = 0;
 
     /* Some description about how to create test environment */
     Note_Configure();

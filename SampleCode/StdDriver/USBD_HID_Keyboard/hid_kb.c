@@ -4,7 +4,8 @@
  * @version  2.0.0
  *
  * @note
- * Copyright (C) 2013 Nuvoton Technology Corp. All rights reserved.
+ * @copyright SPDX-License-Identifier: Apache-2.0
+ * @copyright Copyright (C) 2014 Nuvoton Technology Corp. All rights reserved.
  ******************************************************************************/
 
 /*!<Includes */
@@ -15,6 +16,7 @@
 
 uint8_t volatile g_u8Suspend = 0;
 uint8_t g_u8Idle = 0, g_u8Protocol = 0;
+uint8_t g_au8LEDStatus[8];
 
 void USBD_IRQHandler(void)
 {
@@ -241,8 +243,8 @@ void HID_ClassRequest(void)
                 {
                     /* Request Type = Output */
                     USBD_SET_DATA1(EP1);
-                    USBD_SET_PAYLOAD_LEN(EP1, buf[6]);
-
+                    /* Data stage */
+                    USBD_PrepareCtrlOut(g_au8LEDStatus, buf[6]);
                     /* Status stage */
                     USBD_PrepareCtrlIn(0, 0);
                 }

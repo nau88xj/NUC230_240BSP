@@ -3,7 +3,8 @@
  * @brief    NUC230/240 series USB composite device header file
  *
  * @note
- * Copyright (C) 2013 Nuvoton Technology Corp. All rights reserved.
+ * @copyright SPDX-License-Identifier: Apache-2.0
+ * @copyright Copyright (C) 2014 Nuvoton Technology Corp. All rights reserved.
  ******************************************************************************/
 #ifndef __USBD_HID_H__
 #define __USBD_HID_H__
@@ -29,6 +30,15 @@
 #define HID_RPT_TYPE_INPUT      0x01
 #define HID_RPT_TYPE_OUTPUT     0x02
 #define HID_RPT_TYPE_FEATURE    0x03
+
+/*!<USB HID Keyboard Output Report */
+#define HID_LED_NumLock         0x01
+#define HID_LED_CapsLock        0x02
+#define HID_LED_ScrollLock      0x04
+#define HID_LED_Compose         0x08
+#define HID_LED_Kana            0x10
+#define HID_LED_Constatnt       0xE0
+#define HID_LED_ALL             0xFF
 
 /*!<Define CDC Class Specific Request */
 #define SET_LINE_CODE           0x20

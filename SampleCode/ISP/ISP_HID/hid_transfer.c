@@ -3,7 +3,8 @@
  * @brief    NUC230_240 series USBD driver Sample file
  * @version  2.0.0
  *
- * @copyright (C) 2019 Nuvoton Technology Corp. All rights reserved.
+ * @copyright SPDX-License-Identifier: Apache-2.0
+ * @copyright Copyright (C) 2014 Nuvoton Technology Corp. All rights reserved.
  ******************************************************************************/
 #include <stdio.h>
 #include <string.h>
@@ -11,7 +12,7 @@
 #include "hid_transfer.h"
 
 uint8_t volatile g_u8EP2Ready = 0;
-__align(4) uint8_t usb_rcvbuf[64];
+__attribute__((aligned(4))) uint8_t usb_rcvbuf[64];
 uint8_t bUsbDataReady;
 
 void USBD_IRQHandler(void)
@@ -143,7 +144,7 @@ void USBD_IRQHandler(void)
     }
 }
 
-extern __align(4) uint8_t response_buff[64];
+extern __attribute__((aligned(4))) uint8_t response_buff[64];
 void EP2_Handler(void)  /* Interrupt IN handler */
 {
     uint8_t *ptr;

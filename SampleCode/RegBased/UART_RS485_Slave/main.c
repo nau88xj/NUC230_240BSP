@@ -6,8 +6,9 @@
  * @brief    NUC230_240 Series UART Interface Controller Driver Sample Code
  *
  * @note
- * Copyright (C) 2011 Nuvoton Technology Corp. All rights reserved.
+ * @copyright SPDX-License-Identifier: Apache-2.0
  *
+ * @copyright Copyright (C) 2014 Nuvoton Technology Corp. All rights reserved.
  ******************************************************************************/
 #include <stdio.h>
 #include "NUC230_240.h"
@@ -93,8 +94,8 @@ void RS485_9bitModeSlave()
     /* Set Data Format, only need parity enable whenever parity ODD/EVEN */
     UART1->LCR = (UART_WORD_LEN_8 | UART_PARITY_EVEN | UART_STOP_BIT_1);
 
-    /* Set RTS pin active level as low level active */
-    UART1->MCR = (UART1->MCR & (~UART_MCR_LEV_RTS_Msk)) | UART_RTS_IS_LOW_LEV_ACTIVE;
+    /* Set RTS pin active level as high level active */
+    UART1->MCR = (UART1->MCR & (~UART_MCR_LEV_RTS_Msk)) | UART_RTS_IS_HIGH_LEV_ACTIVE;
 
 #if(IS_USE_RS485NMM == 1)
     printf("+-----------------------------------------------------------+\n");

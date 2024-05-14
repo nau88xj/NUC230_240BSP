@@ -6,15 +6,16 @@
  * @brief    NUC230_240 Series UART Interface Controller Driver Sample Code
  *
  * @note
- * Copyright (C) 2011 Nuvoton Technology Corp. All rights reserved.
+ * @copyright SPDX-License-Identifier: Apache-2.0
  *
+ * @copyright Copyright (C) 2014 Nuvoton Technology Corp. All rights reserved.
  ******************************************************************************/
 #include <stdio.h>
 #include "NUC230_240.h"
 
 
 #define PLLCON_SETTING  CLK_PLLCON_72MHz_HXT
-#define PLL_CLOCK       720000000
+#define PLL_CLOCK       72000000
 
 
 #define IS_USE_RS485NMM   1      //1:Select NMM_Mode , 0:Select AAD_Mode
@@ -91,8 +92,8 @@ void RS485_9bitModeMaster()
     /* You also can use GPIO to control RTS pin for replacing AUD mode */
     UART1->ALT_CSR = UART_ALT_CSR_RS485_AUD_Msk;
 
-    /* Set RTS pin active level as low level active */
-    UART1->MCR = (UART1->MCR & (~UART_MCR_LEV_RTS_Msk)) | UART_RTS_IS_LOW_LEV_ACTIVE;
+    /* Set RTS pin active level as high level active */
+    UART1->MCR = (UART1->MCR & (~UART_MCR_LEV_RTS_Msk)) | UART_RTS_IS_HIGH_LEV_ACTIVE;
 
     /* Set TX delay time */
     UART1->TOR = 0x2000;
