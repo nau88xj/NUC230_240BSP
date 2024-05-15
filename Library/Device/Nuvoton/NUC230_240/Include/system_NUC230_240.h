@@ -26,7 +26,7 @@ extern "C" {
 /*----------------------------------------------------------------------------
   Define SYSCLK
  *----------------------------------------------------------------------------*/
-#define __HXT       (12000000UL)    /*!< External Crystal Clock Frequency     */
+#define __HXT       (16000000UL)    /*!< External Crystal Clock Frequency     */
 #define __LXT       (32768UL)       /*!< External Crystal Clock Frequency 32.768KHz */
 #define __HIRC      (22118400UL)    /*!< Internal 22M RC Oscillator Frequency */
 #define __LIRC      (10000UL)       /*!< Internal 10K RC Oscillator Frequency */
